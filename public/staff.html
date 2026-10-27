@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CampusCare Staff Management Portal">
+  <title>CampusCare | Staff Workspace</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <aside class="project-banner">
+    <span>🔒 <strong>Authorized Staff Workspace:</strong> BCA Student Demonstration Project (expiring HMAC tokens).</span>
+  </aside>
+
+  <header class="top">
+    <a class="brand" href="/" aria-label="CampusCare Home">
+      <img src="/images/amal-jyothi-college-logo.png" alt="Amal Jyothi College of Engineering emblem" width="44" height="44">
+      <span>
+        <b>CampusCare</b>
+        <small>Staff Helpdesk Workspace</small>
+      </span>
+    </a>
+    <nav aria-label="Staff Navigation">
+      <a href="/">← Student Portal</a>
+    </nav>
+  </header>
+
+  <main id="main" class="section">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <p class="eyebrow">STAFF WORKSPACE</p>
+      <h1 style="font-size: clamp(28px, 3.5vw, 40px); color: var(--heading); margin: 0 0 24px; letter-spacing: -0.03em;">
+        Complaint Management &amp; Triage
+      </h1>
+
+      <!-- Login Panel -->
+      <section id="loginBox" class="form-panel" style="max-width: 480px; margin-top: 10px;">
+        <h2 style="font-size: 20px; color: var(--heading); margin: 0 0 16px;">Staff Authentication</h2>
+        <p style="font-size: 13.5px; color: var(--muted); margin: 0 0 20px;">
+          Sign in with departmental staff credentials to manage student complaints and update resolution statuses.
+        </p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-grid" style="grid-template-columns: 1fr; gap: 14px;">
+            <label for="username">
+              Staff Username
+              <input id="username" name="username" required autocomplete="username" placeholder="staff">
+            </label>
+
+            <label for="password">
+              Password
+              <input id="password" name="password" type="password" required autocomplete="current-password" placeholder="••••••••">
+            </label>
+          </div>
+
+          <div style="margin-top: 20px; display: flex; align-items: center; gap: 14px;">
+            <button class="button primary" id="loginBtn" type="submit">Sign in to workspace</button>
+            <p id="loginMessage" role="status" aria-live="polite" style="font-size: 13px; margin: 0; color: var(--muted);"></p>
+          </div>
+        </form>
+      </section>
+
+      <!-- Authenticated Dashboard -->
+      <section id="dashboard" hidden>
+        <!-- Database Metrics / Statistics -->
+        <div id="stats" class="staff-stats-grid"></div>
+
+        <!-- Filter & Search Controls -->
+        <div class="form-panel" style="margin-bottom: 24px;">
+          <div class="form-grid" style="align-items: flex-end;">
+            <label for="search">
+              Search Reference or Title
+              <input id="search" placeholder="e.g. CH-0001 or projector" autocomplete="off">
+            </label>
+
+            <label for="statusFilter">
+              Status Filter
+              <select id="statusFilter">
+                <option value="">All statuses</option>
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </label>
+
+            <label for="categoryFilter">
+              Category Filter
+              <select id="categoryFilter">
+                <option value="">All categories</option>
+                <option value="Classroom / Equipment">Classroom / Equipment</option>
+                <option value="Network / Wi-Fi">Network / Wi-Fi</option>
+                <option value="Library">Library</option>
+                <option value="Hostel / Facilities">Hostel / Facilities</option>
+                <option value="Transport">Transport</option>
+                <option value="Administration">Administration</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+
+            <div style="display: flex; gap: 8px;">
+              <button id="refresh" class="button primary" type="button" style="flex: 1;">Refresh</button>
+              <button id="logout" class="button secondary" type="button">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complaints Listing -->
+        <h2 style="font-size: 18px; color: var(--heading); margin: 0 0 14px; letter-spacing: -0.02em;">
+          Complaints Registry
+        </h2>
+        <div id="complaints" role="region" aria-label="Complaints List"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>CampusCare · Staff Portal</span>
+    <span>BCA Micro-Project (Demonstration)</span>
+  </footer>
+
+  <script src="/staff.js" defer></script>
+</body>
+</html>

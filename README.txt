@@ -1,0 +1,1 @@
+CampusCare starter kit. Read MICRO_PROJECT_DOCUMENTATION.md first. Paste ANTIGRAVITY_MASTER_PROMPT.txt into Antigravity after opening this folder. Replace all demo secrets before public deployment. Never commit .env or cloud database credentials.

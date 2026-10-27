@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: campuscare
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_SSL
+        value: "true"
+      - key: TOKEN_SECRET
+        generateValue: true
+      - key: STAFF_USER
+        value: staff
+      - key: STAFF_PASS
+        sync: false
