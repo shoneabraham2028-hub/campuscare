@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCare Staff Login | Authentication</title>
+  <meta name="description" content="Secure administrative login portal for campus maintenance and support personnel.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="staff-body">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-wrapper" aria-label="CampusCare Home">
+        <div class="logo-plate">
+          <img src="images/amal-jyothi-college-logo.png" alt="Amal Jyothi College of Engineering logo" class="college-logo-img" width="72" height="72">
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">CampusCare</span>
+          <span class="brand-subtitle">Staff Portal</span>
+        </div>
+      </a>
+
+      <nav aria-label="Staff Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Student Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="login-section" id="loginBox">
+      <div class="login-card glass-panel">
+        <h1 class="login-title">Staff Authentication</h1>
+        <p class="login-desc">Enter your authorized credentials to access the ticket management workspace.</p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="u_username" class="form-label">Username</label>
+            <input type="text" id="u_username" class="form-input" placeholder="e.g. staff" autocomplete="username" required>
+            <span class="inline-error" id="u_username_err">Please enter your username.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="u_password" class="form-label">Password</label>
+            <input type="password" id="u_password" class="form-input" placeholder="Enter password" autocomplete="current-password" required>
+            <span class="inline-error" id="u_password_err">Please enter your password.</span>
+          </div>
+
+          <button type="submit" id="loginBtn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Sign In</span>
+          </button>
+
+          <div id="loginOut" class="form-output" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <img src="images/amal-jyothi-header-logo.png" alt="Amal Jyothi College of Engineering header logo" class="footer-logo-img" width="193" height="44">
+      <div class="footer-text">CampusCare. Campus Helpdesk and Student Support.</div>
+      <div class="footer-text">&copy; 2026 All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="staff.js"></script>
+</body>
+</html>

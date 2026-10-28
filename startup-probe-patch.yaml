@@ -1,0 +1,11 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: app
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          periodSeconds: 5
+          failureThreshold: 24

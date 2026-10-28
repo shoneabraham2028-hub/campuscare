@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: campus
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-campus_pass}
+      POSTGRES_DB: campuscare
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U campus -d campuscare"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: campuscare:v1
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: campus
+      DB_PASSWORD: ${DB_PASSWORD:-campus_pass}
+      DB_NAME: campuscare
+      STAFF_USERNAME: ${STAFF_USERNAME:-staff}
+      STAFF_PASSWORD: ${STAFF_PASSWORD:-Staff@123}
+      TOKEN_SECRET: ${TOKEN_SECRET:-local-dev-secret-change-me}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  pgdata:
