@@ -1,0 +1,23 @@
+CAMPUSCARE MASTER PROMPT FOR GOOGLE ANTIGRAVITY
+
+Open the existing CampusCare project folder and inspect it before editing. This is a BCA micro-project for a Campus Helpdesk and Complaint Management System. Preserve Node.js + Express + PostgreSQL, Docker, Docker Compose, and Kubernetes compatibility. Do not turn it into a static mockup or switch to React/Firebase/localStorage.
+
+DESIGN
+Create a refined, warm ivory campus-service design: #F5F3EE background, #FFFEFA surfaces, #24496A navy, #1E3448 headings, #4F897D muted teal, restrained orange accent, #D8DDE2 borders. Use system fonts, excellent contrast, compact layouts, readable forms, subtle glass panels, smooth purposeful motion, and a few muted 3D-inspired ticket/cube objects. No external CDN, no remote fonts, no excessive effects. Respect prefers-reduced-motion and touch/low-power devices.
+
+COLLEGE BRAND
+Use the supplied exact logo at public/images/amal-jyothi-college-logo.png, preserving aspect ratio. Do not redraw or recolour it. CampusCare is a student project; do not imply official college integration.
+
+STUDENT EXPERIENCE
+Keep a compact responsive navigation, welcome hero, Report and Track actions, working complaint form and reference lookup. Add searchable FAQs and six service shortcuts: IT & Wi-Fi, Classroom/Equipment, Library, Hostel/Facilities, Transport, Administration. FAQ/service actions must preselect the matching complaint category and scroll to the existing form. Display only the real reference returned by the backend. Add copy-reference and track-this-request actions. Tracking can show reference, title, category, status, created/updated times and status timeline, but must never return student contact details, full description, or private staff notes.
+
+STAFF EXPERIENCE
+Keep /staff.html separate and protected. Improve light-theme readability, actual database-driven statistics, search by reference/title, status and category filters, clear update feedback, and status changes Open/In Progress/Resolved/Closed. Staff-only backend routes must require valid signed expiring tokens. Never treat hiding a button as authorization. Keep private internal notes out of public tracking responses.
+
+BACKEND AND DEPLOYMENT
+Inspect server.js, package.json, Dockerfile, docker-compose.yml, render.yaml and all k8s manifests before editing. Preserve /health, /ready, PORT, 0.0.0.0 binding, environment-based secrets, parameterised SQL, PostgreSQL persistence, rate limits/security headers, and existing endpoints where practical. Use safe additive database changes only; never drop tables or existing data. Keep Docker Compose, local Minikube/Kubernetes, and Render Docker deployment working. Do not commit .env or credentials. Render is public hosting, not Kubernetes; Minikube is the local Kubernetes demonstration.
+
+IMPLEMENTATION RULES
+Make changes in small stages. Before editing, report the actual files and IDs/routes you found. Do not invent file names, Three.js assets or API contracts; inspect the repository. Keep scripts local to the site and no inline event handlers. Test desktop 1440/1280, tablet 768 and mobile 390 px. Run node --check for changed JavaScript, validate manifests if tools are available, and test complaint submission/tracking, staff login/status update, FAQs, category shortcuts, filters, unauthorized 401 responses and database persistence. Do not claim a test passed unless it was actually run.
+
+When done, list exactly the changed files, database/environment changes, commands to run locally, actual test results and anything not tested. Do not run Docker/Kubernetes deployment, Git push or cloud deployment commands yourself; provide the commands for the student to run manually.

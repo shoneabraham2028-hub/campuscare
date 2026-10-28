@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: campuscare-app
+  namespace: campuscare
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: campuscare
+  template:
+    metadata:
+      labels:
+        app: campuscare
+    spec:
+      containers:
+        - name: campuscare
+          image: campuscare:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef: {name: campuscare-config}
+            - secretRef: {name: campuscare-secret}
+          readinessProbe:
+            httpGet: {path: /ready, port: 3000}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: 3000}
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          resources:
+            requests: {cpu: 50m, memory: 96Mi}
+            limits: {cpu: 300m, memory: 256Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: campuscare-service
+  namespace: campuscare
+spec:
+  type: NodePort
+  selector:
+    app: campuscare
+  ports:
+    - port: 80
+      targetPort: 3000
